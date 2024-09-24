@@ -26,6 +26,12 @@
 
     function delete ($id){
         $result = [];
+        $this -> conexion();
+        $sql = "delete from invernadero where id_invernadero=:id_invernadero;";
+        $eliminar = $this->con->prepare($sql);
+        $eliminar -> bindParam(':id_invernadero', $id, PDO::PARAM_INT);
+        $eliminar -> execute();
+        $result = $eliminar -> rowCount();
         return $result;
     }
 

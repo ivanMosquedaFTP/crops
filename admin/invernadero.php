@@ -33,9 +33,18 @@ switch ($accion) {
         $id = (isset($_GET['id']))?$_GET['id']:null;
         if (!is_null($id)) {
             if (is_numeric($id)) {
-                $app -> delete($id);
+                $resultado = $app -> delete($id);
+                if ($resultado) {
+                    $mensaje = "El invernadero se elimino correctamente";
+                    $tipo = "success";
+                } else {
+                    $mensaje = "El invernadero no se elimino correctamente";
+                    $tipo = "danger";
+                }
             }
         }
+        $invernaderos = $app->readAll();
+        include('views/invernadero/index.php');
         break;
     }
 
