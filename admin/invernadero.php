@@ -11,7 +11,17 @@ switch ($accion) {
 
     case 'nuevo': {
         $data=$_POST['data'];
-        $app->create($data);
+        $resultado = $app->create($data);
+        if ($resultado) {
+            $mensaje = "Invernadero dado de alta correctamente";
+            $tipo = "success";
+        } else {
+            $mensaje = "El invernadero no ha sido dado de alta";
+            $tipo = "danger";
+        }
+
+        $invernaderos = $app->readAll();
+        include('views/invernadero/index.php');
         break;
     }
 
@@ -20,6 +30,12 @@ switch ($accion) {
     }
 
     case 'eliminar': {
+        $id = (isset($_GET['id']))?$_GET['id']:null;
+        if (!is_null($id)) {
+            if (is_numeric($id)) {
+                $app -> delete($id);
+            }
+        }
         break;
     }
 
