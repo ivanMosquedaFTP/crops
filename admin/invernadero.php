@@ -3,6 +3,7 @@ include ('invernadero.class.php');
 $app = new invernadero();
 
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
+$id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
         include 'views/invernadero/crear.php';
@@ -26,11 +27,27 @@ switch ($accion) {
     }
 
     case 'actualizar': {
+        $invernaderos = $app -> readOne($id); 
+        include('views/invernadero/crear.php');
+        break;
+    }
+    
+    case 'modificar': {
+        $data= $_POST['data'];
+        $result=$app->update($id,$data);
+        if($result){
+            $mensaje="El invernadero se ha actualizado";
+            $tipo="success";
+        }else{
+            $mensaje="No se ha actualizado";
+            $tipo="danger";
+        }
+        $invernaderos = $app->readAll();
+        include('views/invernadero/index.php');
         break;
     }
 
     case 'eliminar': {
-        $id = (isset($_GET['id']))?$_GET['id']:null;
         if (!is_null($id)) {
             if (is_numeric($id)) {
                 $resultado = $app -> delete($id);
