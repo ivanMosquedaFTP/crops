@@ -31,6 +31,7 @@ switch ($accion) {
 
     case 'actualizar': {
         $secciones = $app -> readOne($id); 
+        $invernaderos = $appInvernadero -> readAll();
         include('views/seccion/crear.php');
         break;
     }
