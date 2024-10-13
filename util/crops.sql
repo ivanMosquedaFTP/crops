@@ -44,6 +44,7 @@ CREATE TABLE rol(
     id_rol INT AUTO_INCREMENT PRIMARY KEY, 
     rol VARCHAR(30) NOT NULL
 );
+insert into rol(rol) values('usuario'), ('cliente'), ('agricultor'), ('administrador');
 
 CREATE TABLE rol_permiso(
     id_rol INT NOT NULL, 
@@ -54,13 +55,13 @@ CREATE TABLE rol_permiso(
 );
 
 /*usuario*/
-INSERT into rol_permiso(id_permiso, id_rol) values(1, 1);
+INSERT into rol_permiso(id_rol, id_permiso) values(1, 1);
 /*cliente*/
-INSERT into rol_permiso(id_permiso, id_rol) values(2, 1);
+INSERT into rol_permiso(id_rol, id_permiso) values(2, 1);
 /*agricultor*/
-INSERT into rol_permiso(id_permiso, id_rol) values(3, 1), (3, 3), (3, 4), (3, 5), (3, 6);
+INSERT into rol_permiso(id_rol, id_permiso) values(3, 1), (3, 2), (3, 3), (3, 4), (3, 5);
 /*administrador*/
-INSERT into rol_permiso(id_permiso, id_rol) values(4, 1), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8), (4, 9);
+INSERT into rol_permiso(id_rol, id_permiso) values(4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7), (4, 8);
 
 CREATE TABLE usuario_rol(
     id_usuario INT NOT NULL, 
@@ -70,10 +71,12 @@ CREATE TABLE usuario_rol(
     FOREIGN KEY (id_rol) REFERENCES rol(id_rol)
 );
 
-/*celaya.tecn*/
+/*('21031178@itcelaya.edu.mx', '202cb962ac59075b964b07152d234b70'),*/
 insert into usuario_rol(id_rol, id_usuario) VALUES(1, 1);
 insert into usuario_rol(id_rol, id_usuario) VALUES(2, 1);
-/*luislao*/
-insert into usuario_rol(id_rol, id_usuario) VALUES(2, 4);
-/*agricultor*/
+
+/*('luislao@itcelaya.edu.mx', 'd16fb36f0911f878998c136191af705e'),*/
+insert into usuario_rol(id_rol, id_usuario) VALUES(4, 2);
+
+/*('l21031178@celaya.tecnm.mx', '900150983cd24fb0d6963f7d28e17f72');*/
 insert into usuario_rol(id_rol, id_usuario) VALUES(3, 3);
