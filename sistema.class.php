@@ -18,7 +18,7 @@
                     inner JOIN rol r on r.id_rol = ur.id_rol
                     where u.correo = :correo ";
 
-                $roles = $this->conn->prepare $sql;
+                $roles = $this->conn->prepare($sql);
                 $roles->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $roles->execute();
                 $data = $roles->fetchAll(PDO::FETCH_ASSOC);
@@ -37,7 +37,7 @@
                         inner JOIN permiso p on p.id_permiso = rp.id_permiso
                             where u.correo = :correo;";
 
-                $privilegio = $this->conn->prepare $sql;
+                $privilegio = $this->conn->prepare($sql);
                 $privilegio->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $privilegio->execute();
                 $data = $privilegio->fetchAll(PDO::FETCH_ASSOC);
