@@ -11,7 +11,7 @@ CREATE TABLE `seccion` (
   `id_seccion` int(11) NOT NULL,
   `seccion` varchar(50) NOT NULL,
   `area` decimal(8,2) NOT NULL,
-  `id_invernadero` integer REFERENCES invernadero(id_invernadero) NOT NULL
+  `id_invernadero` integer REFERENCES invernadero(id_invernadero)
 );
 
 CREATE TABLE usuario(
