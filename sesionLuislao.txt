@@ -55,3 +55,51 @@ inner JOIN rol r on r.id_rol = ur.id_rol
 INNER JOIN rol_permiso rp on rp.id_rol = r.id_rol
 inner JOIN permiso p on p.id_permiso = rp.id_permiso
 where u.correo = '21031178@itcelaya.edu.mx';
+
+
+--lo que paso rubicon
+
+-- Tabla usuario
+CREATE TABLE usuario(
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY, 
+    contrasena VARCHAR(32), 
+    correo VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Tabla rol
+CREATE TABLE rol(
+    id_rol INT AUTO_INCREMENT PRIMARY KEY, 
+    rol VARCHAR(30) NOT NULL
+);
+
+-- Tabla permiso
+CREATE TABLE permiso(
+    id_permiso INT AUTO_INCREMENT PRIMARY KEY, 
+    permiso VARCHAR(30) NOT NULL
+);
+
+-- Verifica que rol y permiso ya estén creadas correctamente antes de seguir
+
+-- Tabla rol_permiso
+CREATE TABLE rol_permiso(
+    id_rol INT NOT NULL, 
+    id_permiso INT NOT NULL, 
+    PRIMARY KEY (id_rol, id_permiso), 
+    FOREIGN KEY (id_rol) REFERENCES rol(id_rol) ON DELETE CASCADE ON UPDATE CASCADE, 
+    FOREIGN KEY (id_permiso) REFERENCES permiso(id_permiso) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Tabla usuario_rol
+CREATE TABLE usuario_rol(
+    id_usuario INT NOT NULL, 
+    id_rol INT NOT NULL, 
+    PRIMARY KEY (id_usuario, id_rol), 
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE, 
+    FOREIGN KEY (id_rol) REFERENCES rol(id_rol) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+into usuario(correo, contrasena) values ('21030305@itcelaya.edu.mx','1234');
+insert into usuario(correo, contrasena) values ('luislao@itcelaya.edu.mx','1234');
+insert into rol(rol) values ('cliente'), ('administrador'),('agricultor');
+insert into permiso (permiso) values('Index'),('Ver Invernaderos'), ('Nuevo Invernadero'),('Modificar Invernaderos'),('Eliminar invernadero'),('Agregar Usuario'),('Modificar Usuario'),('Eliminar Usuario');
+insert into rol(rol) values ('usuario');
