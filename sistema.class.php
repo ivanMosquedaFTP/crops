@@ -47,11 +47,11 @@
                 $privilegio->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $privilegio->execute();
                 $data = $privilegio->fetchAll(PDO::FETCH_ASSOC);
-                $privilegios = [];
-                foreach($data as $privilegio) {
-                  array_push($privilegios, $privilegio['privilegio']);
+                $permisos = [];
+                foreach($data as $permiso) {
+                  array_push($permisos, $permiso['permiso']);
                 }
-                $data = $privilegios;
+                $data = $permisos;
             }
             
             return $data;
