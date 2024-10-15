@@ -1,6 +1,5 @@
 <?php
   require_once('../sistema.class.php');
-  include('views/login/index.php');
 
   $app = new sistema;
   $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
