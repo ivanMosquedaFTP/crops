@@ -62,11 +62,11 @@
 
             if (isset($resultado[0])) {
               $acceso = true;
-              $_session['validado'] = $acceso;
+              $_SESSION['validado'] = $acceso;
             }
           }
 
-          $_session['validado'] = false;
+          $_SESSION['validado'] = false;
           return $acceso;
         }
     }
