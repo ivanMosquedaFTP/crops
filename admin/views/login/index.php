@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    <form>
+    <form action="login.php?accion=login" method="post">
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
         <input type="email" id="form2Example1" class="form-control" />
@@ -30,13 +30,12 @@
 
         <div class="col">
           <!-- Simple link -->
-          <a href="#!">Forgot password?</a>
+          <a href="login.php?accion=forgot">Forgot password?</a>
         </div>
       </div>
 
       <!-- Submit button -->
-      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign
-        in</button>
+      <input type="submit" class="btn btn-primary btn-block mb-4" value="Entrar al sistema">
 
       <!-- Register buttons -->
       <div class="text-center">
