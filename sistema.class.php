@@ -45,5 +45,18 @@
             
             return $data;
         }
+
+        function login($correo, $contrasena) {
+          $contrasena = md5($contrasena);
+          if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+            $this -> conexion();
+            $sql = "select * from usuario where correo = :correo and contrasena = :contrasena;";
+            $sql = $this->con->prepare($sql);
+            $sql->bindParam(":correo",$correo,PDO::PARAM_STR);
+            $sql->bindParam(":contrasena",$contrasena,PDO::PARAM_STR);
+            $sql->execute();
+            $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+          }
+        }
     }
 ?>

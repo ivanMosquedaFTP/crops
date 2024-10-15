@@ -6,7 +6,10 @@
 
   switch ($accion) {
     case 'login': {
-      print_r($_POST);
+      $correo = $_POST['data']['correo'];
+      $contrasena = $_POST['data']['contrasena'];
+      echo($app -> login($data, $contrasena));
+
       break;
     }
     
