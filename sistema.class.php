@@ -63,6 +63,7 @@
             if (isset($resultado[0])) {
               $acceso = true;
               $_SESSION['validado'] = $acceso;
+              return $acceso;
             }
           }
 
