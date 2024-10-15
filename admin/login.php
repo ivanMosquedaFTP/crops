@@ -10,6 +10,7 @@
       $contrasena = $_POST['data']['contrasena'];
       if($app -> login($correo, $contrasena)) {
         echo('Bienvenido al sistema');
+        echo('<pre>');
         print_r($_SESSION);
         die();
       } else {
