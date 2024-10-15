@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('config.class.php');
     class sistema {
         var $con;
@@ -61,9 +62,11 @@
 
             if (isset($resultado[0])) {
               $acceso = true;
+              $_session['validado'] = $acceso;
             }
           }
 
+          $_session['validado'] = false;
           return $acceso;
         }
     }
