@@ -63,6 +63,12 @@
             if (isset($resultado[0])) {
               $acceso = true;
               $_SESSION['validado'] = $acceso;
+              $roles = $this -> getRole($correo);
+              $privilegios = $this -> getPrivilegios($correo);
+
+              array_push($_SESSION['roles'], $roles);
+              array_push($_SESSION['privilegios'], $privilegios);
+
               return $acceso;
             }
           }
