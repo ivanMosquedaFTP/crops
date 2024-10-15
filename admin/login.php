@@ -8,7 +8,7 @@
     case 'login': {
       $correo = $_POST['data']['correo'];
       $contrasena = $_POST['data']['contrasena'];
-      echo($app -> login($data, $contrasena));
+      echo($app -> login($correo, $contrasena));
 
       break;
     }
