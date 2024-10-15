@@ -10,7 +10,7 @@
       $contrasena = $_POST['data']['contrasena'];
       if($app -> login($correo, $contrasena)) {
         echo('Bienvenido al sistema');
-        print_r($_session);
+        print_r($_SESSION);
         die();
       } else {
         echo('acceso denegado');
