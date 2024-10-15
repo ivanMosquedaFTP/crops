@@ -30,7 +30,7 @@
 
         <div class="col">
           <!-- Simple link -->
-          <a href="login.php?accion=forgot">Forgot password?</a>
+          <a href="login.php?accion=forgot">Olvidaste la Contrasena?</a>
         </div>
       </div>
 
