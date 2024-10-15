@@ -23,6 +23,9 @@
                 $roles->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $roles->execute();
                 $data = $roles->fetchAll(PDO::FETCH_ASSOC);
+                foreach($data as $rol) {
+                  array_push($roles, $rol['rol']);
+                }
             }
             
             return $data;
