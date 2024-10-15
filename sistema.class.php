@@ -23,9 +23,11 @@
                 $roles->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $roles->execute();
                 $data = $roles->fetchAll(PDO::FETCH_ASSOC);
+                $roles = [];
                 foreach($data as $rol) {
                   array_push($roles, $rol['rol']);
                 }
+                $data = $roles;
             }
             
             return $data;
@@ -45,6 +47,11 @@
                 $privilegio->bindParam(":correo",$correo,PDO::PARAM_STR);
                 $privilegio->execute();
                 $data = $privilegio->fetchAll(PDO::FETCH_ASSOC);
+                $privilegios = [];
+                foreach($data as $privilegio) {
+                  array_push($privilegios, $privilegio['privilegio']);
+                }
+                $data = $privilegios;
             }
             
             return $data;
