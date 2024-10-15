@@ -66,8 +66,8 @@
               $roles = $this -> getRole($correo);
               $privilegios = $this -> getPrivilegios($correo);
 
-              array_push($_SESSION['roles'], $roles);
-              array_push($_SESSION['privilegios'], $privilegios);
+              $_SESSION['roles'] = $roles;
+              $_SESSION['privilegios'] = $privilegios;
 
               return $acceso;
             }
