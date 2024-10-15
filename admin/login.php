@@ -8,7 +8,12 @@
     case 'login': {
       $correo = $_POST['data']['correo'];
       $contrasena = $_POST['data']['contrasena'];
-      echo($app -> login($correo, $contrasena));
+      if($app -> login($correo, $contrasena)) {
+        echo('Bienvenido al sistema');
+      } else {
+        echo('acceso denegado');
+        die();
+      }
 
       break;
     }
