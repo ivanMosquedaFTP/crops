@@ -35,7 +35,7 @@
       </div>
 
       <!-- Submit button -->
-      <input type="submit" class="btn btn-primary btn-block mb-4" value="Entrar al sistema">
+      <input type="submit" class="btn btn-primary btn-block mb-4" value="Entrar al sistema" name="data[enviar]">
 
       <!-- Register buttons -->
       <div class="text-center">
