@@ -1,6 +1,8 @@
 <?php
   require('views/header.php');
 ?>
+<div class="col-md-1"></div>
+<div class="col-md-10">
 <form>
   <!-- Email input -->
   <div data-mdb-input-init class="form-outline mb-4">
@@ -54,6 +56,9 @@
     </button>
   </div>
 </form>
+</div>
+<div class="col-md-1"></div>
+<div></div>
 <?php
   require('views/footer.php');
 ?>
