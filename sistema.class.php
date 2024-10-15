@@ -87,5 +87,16 @@
           $_SESSION['validado'] = false;
           return $acceso;
         }
+
+        function checkRole($rol) {
+          $roles = $_SESSION['roles'];
+          if (!in_array($rol, $roles)) {
+            echo('error, no tienes el role');
+            die();
+          } else {
+            echo('success, si tienes el role');
+            die();
+          }
+        }
     }
 ?>
