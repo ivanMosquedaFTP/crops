@@ -88,14 +88,17 @@
           return $acceso;
         }
 
+        function logout() {
+          unset($_SESSION);
+          session_destroy();
+        }
+
         function checkRole($rol) {
           $roles = $_SESSION['roles'];
           if (!in_array($rol, $roles)) {
             echo('error, no tienes el role');
             die();
           } else {
-            echo('success, si tienes el role');
-            die();
           }
         }
     }

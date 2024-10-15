@@ -15,11 +15,12 @@
         die();
       } else {
         echo('acceso denegado');
-        die();
       }
 
       break;
     }
+
+    case 'logout': {$app -> logout(); break;}
     
     default: {
       include('views/login/index.php');
