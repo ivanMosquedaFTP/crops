@@ -72,6 +72,7 @@
 
             if (isset($resultado[0])) {
               $acceso = true;
+              $_SESSION['correo'] = $correo;
               $_SESSION['validado'] = $acceso;
               $roles = $this -> getRole($correo);
               $privilegios = $this -> getPrivilegios($correo);
