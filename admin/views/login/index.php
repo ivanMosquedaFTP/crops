@@ -8,13 +8,13 @@
     <form action="login.php?accion=login" method="post">
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control" />
+        <input type="email" id="form2Example1" class="form-control" name="data[correo]" />
         <label class="form-label" for="form2Example1">Correo electronico</label>
       </div>
 
       <!-- Password input -->
       <div data-mdb-input-init class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
+        <input type="password" id="form2Example2" class="form-control" name="data[contrasena]" />
         <label class="form-label" for="form2Example2">Contrasena</label>
       </div>
 
