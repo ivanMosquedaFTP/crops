@@ -93,7 +93,7 @@
           session_destroy();
           $mensaje = "Gracias por utilizar el sistema, se ha cerrado la sesion <a href='login.php'> [presione aqui para volver a entrar] </a>";
           $tipo = "success";
-          $require_once('views/header.php');
+          require_once('views/header.php');
           $this -> alerta($tipo, $mensaje);
           $require_once('views/footer.php');
         }
@@ -103,7 +103,7 @@
           if (!in_array($rol, $roles)) {
             $mensaje = "error, usted no tiene el role adecuado";
             $tipo = "danger";
-            $require_once('admin/views/header/alert.php');
+            require_once('admin/views/header/alert.php');
             $this -> alerta($tipo, $mensaje);
             die();
           } else {
