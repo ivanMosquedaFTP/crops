@@ -108,8 +108,12 @@
               require_once('admin/views/header/alert.php');
               $this -> alerta($tipo, $mensaje);
               die();
-            }  else {
-            }
+            } else { }
+          } else {
+            $mensaje = "error, usted no tiene el role adecuado";
+            $tipo = "danger";
+            $this -> alerta($tipo, $mensaje);
+            die();
           }
         }
     }
