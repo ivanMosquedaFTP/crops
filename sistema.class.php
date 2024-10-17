@@ -101,7 +101,6 @@
         function checkRole($rol) {
           if (isset($_SESSION['roles'])) {
             $roles = $_SESSION['roles'];
-            print_r($roles);
             if (!in_array($rol, $roles)) {
               $mensaje = "Requiere iniciar sesion <a href='admin/login.php'>[iniciar sesion]</a>";
               $tipo = "danger";
