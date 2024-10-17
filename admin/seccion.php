@@ -3,6 +3,7 @@ require_once ('seccion.class.php');
 require_once ('invernadero.class.php');
 $appInvernadero = new invernadero();
 $app = new seccion();
+$app -> checkRole('administrador');
 
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;

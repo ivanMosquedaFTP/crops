@@ -1,4 +1,4 @@
-<?php require('views/header.php'); ?>
+<?php require('views/header/headerAdministrador.php'); ?>
 <center>
     <h1><?php if($accion=="crear"):echo('Nuevo');else: echo ('Modificar');endif; ?> Invernadero</h1>
 </center>
