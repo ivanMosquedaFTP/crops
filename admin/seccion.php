@@ -76,4 +76,5 @@ switch ($accion) {
         break;
     }
 }
+require_once('views/footer.php');
 ?>
