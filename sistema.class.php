@@ -102,14 +102,14 @@
           if (isset($_SESSION['roles'])) {
             $roles = $_SESSION['roles'];
             if (!in_array($rol, $roles)) {
-              $mensaje = "Requiere iniciar sesion <a href='admin/login.php'>[iniciar sesion]</a>";
+              $mensaje = "Requiere iniciar sesion <a href='login.php'>[iniciar sesion]</a>";
               $tipo = "danger";
               require_once('admin/views/header/alert.php');
               $this -> alerta($tipo, $mensaje);
               die();
             } else { }
           } else {
-            $mensaje = "Requiere iniciar sesion <a href='admin/login.php'>[iniciar sesion]</a>";
+            $mensaje = "Requiere iniciar sesion <a href='login.php'>[iniciar sesion]</a>";
             $tipo = "danger";
             $this -> alerta($tipo, $mensaje);
             die();
