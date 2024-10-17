@@ -16,7 +16,11 @@
         $app -> alerta($tipo, $mensaje);
         //TODO:plantillas personalizadas de Bienvenida
       } else {
-        echo('acceso denegado');
+        $mensaje = "Correo o contrasena equivocados, <a href='login.php'>[presione aqui para volver a intentar]</a>";
+        $tipo = "danger";
+        require_once('views/header.php');
+        $app -> alerta($tipo, $mensaje);
+        require_once('views/footer.php');
       }
 
       break;
