@@ -96,7 +96,9 @@
         function checkRole($rol) {
           $roles = $_SESSION['roles'];
           if (!in_array($rol, $roles)) {
-            echo('error, no tienes el role');
+            $mensaje = "error, usted no tiene el role adecuado";
+            $tipo = "danger";
+            $this -> alerta($tipo, $mensaje);
             die();
           } else {
           }
