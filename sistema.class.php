@@ -98,6 +98,7 @@
           if (!in_array($rol, $roles)) {
             $mensaje = "error, usted no tiene el role adecuado";
             $tipo = "danger";
+            $require_once('views/header/alert.php');
             $this -> alerta($tipo, $mensaje);
             die();
           } else {
