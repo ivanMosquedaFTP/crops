@@ -9,9 +9,11 @@
       $correo = $_POST['data']['correo'];
       $contrasena = $_POST['data']['contrasena'];
       if($app -> login($correo, $contrasena)) {
-        echo('Bienvenido al sistema');
-        echo('<pre>');
-        print_r($_SESSION);
+        $mensaje = "Bienvenido al sistema";
+        $tipo = "success";
+        require_once('views/header/headerAdministrador.php');
+        $app -> alerta($tipo, $mensaje);
+        //TODO:plantillas personalizadas de Bienvenida
         die();
       } else {
         echo('acceso denegado');
@@ -27,4 +29,6 @@
       break;
     }
   }
+
+  require_once('views/footer.php');
 ?>
