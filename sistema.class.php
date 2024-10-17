@@ -95,7 +95,7 @@
           $tipo = "success";
           require_once('views/header.php');
           $this -> alerta($tipo, $mensaje);
-          $require_once('views/footer.php');
+          require_once('views/footer.php');
         }
 
         function checkRole($rol) {
