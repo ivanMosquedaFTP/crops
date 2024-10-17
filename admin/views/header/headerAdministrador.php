@@ -1,6 +1,6 @@
-/*<?php*/
-/*  require_once('../header.php');*/
-/*?>*/
+<?php
+  require_once('../header.php');
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Administrador</a>
