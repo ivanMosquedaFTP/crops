@@ -91,6 +91,10 @@
         function logout() {
           unset($_SESSION);
           session_destroy();
+          $mensaje = "Gracias por utilizar el sistema, se ha cerrado la sesion";
+          $tipo = "success";
+          $require_once('admin/views/header/alert.php');
+          $this -> alerta($tipo, $mensaje);
         }
 
         function checkRole($rol) {
