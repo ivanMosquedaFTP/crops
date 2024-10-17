@@ -11,10 +11,10 @@
       if($app -> login($correo, $contrasena)) {
         $mensaje = "Bienvenido al sistema";
         $tipo = "success";
+        $app -> checkRole('administrador');
         require_once('views/header/headerAdministrador.php');
         $app -> alerta($tipo, $mensaje);
         //TODO:plantillas personalizadas de Bienvenida
-        die();
       } else {
         echo('acceso denegado');
       }
