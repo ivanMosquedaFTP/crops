@@ -91,9 +91,9 @@
         function logout() {
           unset($_SESSION);
           session_destroy();
-          $mensaje = "Gracias por utilizar el sistema, se ha cerrado la sesion";
+          $mensaje = "Gracias por utilizar el sistema, se ha cerrado la sesion <a href='login.php'> [presione aqui para volver a entrar] </a>";
           $tipo = "success";
-          $require_once('views/alert.php');
+          $require_once('views/header.php');
           $this -> alerta($tipo, $mensaje);
           $require_once('views/footer.php');
         }
