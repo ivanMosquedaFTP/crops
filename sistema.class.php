@@ -99,14 +99,17 @@
         }
 
         function checkRole($rol) {
-          $roles = $_SESSION['roles'];
-          if (!in_array($rol, $roles)) {
-            $mensaje = "error, usted no tiene el role adecuado";
-            $tipo = "danger";
-            require_once('admin/views/header/alert.php');
-            $this -> alerta($tipo, $mensaje);
-            die();
-          } else {
+          if (isset($_SESSION['roles'])) {
+            $roles = $_SESSION['roles'];
+            print_r($roles);
+            if (!in_array($rol, $roles)) {
+              $mensaje = "error, usted no tiene el role adecuado";
+              $tipo = "danger";
+              require_once('admin/views/header/alert.php');
+              $this -> alerta($tipo, $mensaje);
+              die();
+            }  else {
+            }
           }
         }
     }
