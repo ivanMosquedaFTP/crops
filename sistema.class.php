@@ -93,8 +93,9 @@
           session_destroy();
           $mensaje = "Gracias por utilizar el sistema, se ha cerrado la sesion";
           $tipo = "success";
-          $require_once('admin/views/header/alert.php');
+          $require_once('views/alert.php');
           $this -> alerta($tipo, $mensaje);
+          $require_once('views/footer.php');
         }
 
         function checkRole($rol) {
