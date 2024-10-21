@@ -14,7 +14,6 @@
     <tr>
       <th scope="row"><?php echo $usuario ['id_usuario']; ?></th>
       <td><?php echo $usuario ['correo']; ?></td>
-      <td><?php echo $usuario ['contrasena']; ?></td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
           <a href="usuario.php?accion=actualizar&id=<?php echo $usuario ['id_usuario']; ?>" class="btn btn-warning">Actualizar</a>
