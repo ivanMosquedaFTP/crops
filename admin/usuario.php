@@ -4,8 +4,8 @@ require_once ('usuario.class.php');
 
 /*require_once ('rol.class.php');*/
 
-$approl = new rol();
-/*$appRole = new rol();*/
+$appRole = new rol();
+/*$appRolee = new rol();*/
 $app = new usuario();
 $app -> checkRole('administrador');
 
@@ -13,7 +13,7 @@ $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
-        $roles = $approl -> readAll();
+        $roles = $appRole -> readAll();
         include 'views/usuario/crear.php';
         break;
     }
@@ -22,21 +22,21 @@ switch ($accion) {
         $data=$_POST['data'];
         $resultado = $app->create($data);
         if ($resultado) {
-            $mensaje = "Sección dada de alta correctamente";
+            $mensaje = "Usuario dado de alta correctamente";
             $tipo = "success";
         } else {
-            $mensaje = "La sección no ha sido dado de alta";
+            $mensaje = "El usuario no ha sido dado de alta";
             $tipo = "danger";
         }
 
-        $usuarioes = $app->readAll();
+        $usuarios = $app->readAll();
         include('views/usuario/index.php');
         break;
     }
 
     case 'actualizar': {
-        $usuarioes = $app -> readOne($id); 
-        $roles = $approl -> readAll();
+        $usuarios = $app -> readOne($id); 
+        $roles = $appRole -> readAll();
         include('views/usuario/crear.php');
         break;
     }
@@ -45,13 +45,13 @@ switch ($accion) {
         $data= $_POST['data'];
         $result=$app->update($id,$data);
         if($result){
-            $mensaje="La sección se ha actualizado";
+            $mensaje="El usuario se ha actualizado";
             $tipo="success";
         }else{
             $mensaje="No se ha actualizado";
             $tipo="danger";
         }
-        $usuarioes = $app->readAll();
+        $usuarios = $app->readAll();
         include('views/usuario/index.php');
         break;
     }
@@ -61,21 +61,21 @@ switch ($accion) {
             if (is_numeric($id)) {
                 $resultado = $app -> delete($id);
                 if ($resultado) {
-                    $mensaje = "La sección se eliminó correctamente";
+                    $mensaje = "El usuario se eliminó correctamente";
                     $tipo = "success";
                 } else {
-                    $mensaje = "La sección no se eliminó correctamente";
+                    $mensaje = "El usuario no se eliminó correctamente";
                     $tipo = "danger";
                 }
             }
         }
-        $usuarioes = $app->readAll();
+        $usuarios = $app->readAll();
         include('views/usuario/index.php');
         break;
     }
 
     default: {
-        $usuarioes = $app->readAll();
+        $usuarios = $app->readAll();
         include 'views/usuario/index.php';
         break;
     }
