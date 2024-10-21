@@ -4,8 +4,7 @@ require_once ('usuario.class.php');
 
 /*require_once ('rol.class.php');*/
 
-$appRole = new rol();
-/*$appRolee = new rol();*/
+/*$appRole = new rol();*/
 $app = new usuario();
 $app -> checkRole('administrador');
 
