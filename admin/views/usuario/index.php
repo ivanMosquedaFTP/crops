@@ -1,26 +1,24 @@
 <?php require('views/header/headerAdministrador.php');?>
-  <h1>Secciones</h1>
+  <h1>Usuarios</h1>
   <?php if (isset($mensaje)): $app -> alerta($tipo, $mensaje); endif;?>
-  <a href="seccion.php?accion=crear" class="btn btn-success">Nuevo</a>
+  <a href="usuario.php?accion=crear" class="btn btn-success">Nuevo</a>
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id seccion</th>
-      <th scope="col">Sección</th>
-      <th scope="col">Area</th>
-      <th scope="col">Invernadero</th>
+      <th scope="col">Id usuario</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Role</th>
   </thead>
   <tbody>
-    <?php foreach($secciones as $seccion): ?>
+    <?php foreach($usuarios as $usuario): ?>
     <tr>
-      <th scope="row"><?php echo $seccion ['id_seccion']; ?></th>
-      <td><?php echo $seccion ['seccion']; ?></td>
-      <td><?php echo $seccion ['area']; ?></td>
-      <td><?php echo $seccion ['invernadero']; ?></td>
+      <th scope="row"><?php echo $usuario ['id_usuario']; ?></th>
+      <td><?php echo $usuario ['correo']; ?></td>
+      <td><?php echo $usuario ['contrasena']; ?></td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <a href="seccion.php?accion=actualizar&id=<?php echo $seccion ['id_seccion']; ?>" class="btn btn-warning">Actualizar</a>
-          <a href="seccion.php?accion=eliminar&id=<?php echo $seccion ['id_seccion']; ?>" class="btn btn-danger">Eliminar</a>
+          <a href="usuario.php?accion=actualizar&id=<?php echo $usuario ['id_usuario']; ?>" class="btn btn-warning">Actualizar</a>
+          <a href="usuario.php?accion=eliminar&id=<?php echo $usuario ['id_usuario']; ?>" class="btn btn-danger">Eliminar</a>
         </div>
       </td>
     </tr>

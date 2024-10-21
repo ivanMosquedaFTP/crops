@@ -1,35 +1,24 @@
 <?php require('views/header/headerAdministrador.php'); ?>
 <center>
-    <h1><?php if($accion=="crear"):echo('Nuevo');else: echo ('Modificar');endif; ?> seccion</h1>
+    <h1><?php if($accion=="crear"):echo('Nuevo');else: echo ('Modificar');endif; ?> usuario</h1>
 </center>
 
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <form method="post" action="seccion.php?accion=<?php if($accion=="crear"):echo('nuevo');else:echo('modificar&id='.$id);endif;?>">
+        <form method="post" action="usuario.php?accion=<?php if($accion=="crear"):echo('nuevo');else:echo('modificar&id='.$id);endif;?>">
         <div class="mb-3">
-            <label for="seccion" class="form-label">Nombre de la sección</label>
-            <input class="form-control" type="text" name="data[seccion]" placeholder="Escribe aqui el nombre" value="<?php if(isset($secciones["seccion"])):echo($secciones['seccion']);endif;?>" id="seccion"/>
+            <label for="correo" class="form-label">Nombre del usuario</label>
+            <input class="form-control" type="text" name="data[correo]" placeholder="Escribe aqui el correo electronico" value="<?php if(isset($usuarios["correo"])):echo($usuarios['correo']);endif;?>" id="correo"/>
         </div>
 
         <div class="mb-3">
-            <label for="area" class="form-label">Area de la sección (m<sup>2</sup>)</label>
-            <input class="form-control" id="area" type="number" name="data[area]" placeholder="Escribe aqui el area" value="<?php if(isset($secciones["area"])):echo($secciones['area']);endif;?>"/>
+            <label for="contrasena" class="form-label">Contrasena</label>
+            <input class="form-control" id="contrasena" type="password" name="data[contrasena]" placeholder="Escribe aqui la contrasena" value="<?php if(isset($usuarios["contrasena"])):echo($usuarios['contrasena']);endif;?>"/>
         </div>
 
         <div class="mb-3">
-           <label for="">Invernadero</label> 
-           <select name="data[id_invernadero]" id="" class="form-select">
-                <?php foreach($invernaderos as $invernadero):?> 
-                <?php
-                    $selected = "";
-                    if ($secciones['id_invernadero'] == $invernadero['id_invernadero']) {
-                        $selected = "selected";
-                    }
-                ?>
-                <option value="<?php echo($invernadero['id_invernadero']);?>" <?php echo($selected);?>><?php echo($invernadero['invernadero']);?></option>
-                <?php endforeach;?>
-           </select>
+          /<!--*TODO:add role logic here*/-->
         </div>
 
         <input type="submit" value="Guardar" name="data[enviar]" class="btn btn-primary w-100">
