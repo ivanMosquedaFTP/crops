@@ -18,6 +18,10 @@ switch ($accion) {
 
     case 'nuevo': {
         $data=$_POST['data'];
+
+        print_r($_POST);
+        die();
+
         $resultado = $app->create($data);
         if ($resultado) {
             $mensaje = "Usuario dado de alta correctamente";
