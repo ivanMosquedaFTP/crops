@@ -30,7 +30,7 @@
               $sql = "insert into usuario_rol(id_usuario, id_rol) values(:id_usuario, :id_rol);";
               $insertar_rol = $this->con->prepare($sql);
               $insertar_rol -> bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-              $insertar_rol -> bindParam(':id_rol', $k, PDO::PARAM_INT);
+              $insertar_rol -> bindParam(':id_rol', $r, PDO::PARAM_INT);
               $insertar_rol -> execute();
             }
 
