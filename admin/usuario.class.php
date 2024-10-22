@@ -36,12 +36,10 @@
 
             $this -> con -> commit();
             $result = $insertar -> rowCount();
-          } else {
           }
-          
+         
           return $result;
         } catch(Exception $e) {
-          /*echo("error");*/
           $this -> con -> rollback();
         }
         return false;
