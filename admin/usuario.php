@@ -17,10 +17,11 @@ switch ($accion) {
     }
 
     case 'nuevo': {
-        $data=$_POST['data'];
+        /*$data=$_POST['data'];*/
+        $data=$_POST;
 
-        print_r($_POST);
-        die();
+        /*print_r($_POST);*/
+        /*die();*/
 
         $resultado = $app->create($data);
         if ($resultado) {
