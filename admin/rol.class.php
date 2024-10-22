@@ -6,13 +6,9 @@
         $result = [];
         $insertar = [];
         $this -> conexion();
-        $sql="insert into rol(area, fecha_creacion, rol, latitud, longitud) values(:area, :fecha_creacion, :rol, :latitud, :longitud);";
+        $sql="insert into rol(rol) values(:rol);";
         $insertar = $this->con->prepare($sql);
-        $insertar -> bindParam(':area', $data['area'], PDO::PARAM_INT);
-        $insertar -> bindParam(':fecha_creacion', $data['fecha_creacion'], PDO::PARAM_STR);
-        $insertar -> bindParam(':rol', $data['rol'], PDO::PARAM_STR);
-        $insertar -> bindParam(':latitud', $data['latitud'], PDO::PARAM_STR);
-        $insertar -> bindParam(':longitud', $data['longitud'], PDO::PARAM_STR);
+        $insertar -> bindParam(':rol', $data['rol'], PDO::PARAM_INT);
         $insertar -> execute();
         $result = $insertar -> rowCount();
         return $result;
@@ -21,14 +17,10 @@
     function update ($id, $data){
         $this->conexion();
         $result = [];
-        $sql = 'update rol set rol=:rol, latitud=:latitud,longitud=:longitud,area=:area, fecha_creacion=:fecha_creacion where id_rol=:id_rol;';
+        $sql = 'update rol set rol=:rol where id_rol=:id_rol;';
         $modificar=$this->con->prepare($sql);
         $modificar->bindParam(':id_rol',$id, PDO::PARAM_INT);
         $modificar->bindParam(':rol',$data['rol'], PDO::PARAM_STR);
-        $modificar->bindParam(':longitud',$data['longitud'], PDO::PARAM_STR);
-        $modificar->bindParam(':latitud',$data['latitud'], PDO::PARAM_STR);
-        $modificar->bindParam(':area',$data['area'], PDO::PARAM_INT);
-        $modificar->bindParam(':fecha_creacion',$data['fecha_creacion'], PDO::PARAM_STR);
         $modificar->execute();
         $result= $modificar->rowCount();
         return $result;
