@@ -92,5 +92,16 @@
         $result = $sql -> fetchALL(PDO::FETCH_ASSOC);    
         return $result;
     }
+
+    function readAllRoles($id){
+        $this -> conexion();
+        $result = [];
+        $sql ='select u.*, r.rol from usuario u inner join usuario_rol ur on u.id_usuario=ur.id_usuario inner join rol r on ur.id_rol = r.id_rol where u.id_usuario = :id_usuario;';
+        $consulta = $this->con->prepare ($sql); 
+        $consulta->bindParam(":id_usuario",$id,PDO::PARAM_INT);
+        $consulta -> execute();
+        $result = $consulta -> fetchALL(PDO::FETCH_ASSOC);
+        return $result;
+    }
  }
 ?>

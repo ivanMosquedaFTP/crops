@@ -57,4 +57,4 @@ inner JOIN permiso p on p.id_permiso = rp.id_permiso
 where u.correo = '21031178@itcelaya.edu.mx';
 
 --------------------------------------------------------------------------
-select u.*, r.rol from usuario u inner join usuario_rol ur on u.id_usuario=ur.id_usuario inner join rol r on ur.id_rol = r.id_rol where id_usuario = 2;
+select u.*, r.rol from usuario u inner join usuario_rol ur on u.id_usuario=ur.id_usuario inner join rol r on ur.id_rol = r.id_rol where u.id_usuario = 2;
