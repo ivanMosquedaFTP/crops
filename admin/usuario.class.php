@@ -6,6 +6,10 @@
         $result = [];
         $insertar = [];
         $this -> conexion();
+        $roles = $data['roles'];
+        $data = $data['data'];
+        print_r($roles);
+        print_r($data);
         $this -> con -> beginTransaction();
         $sql="insert into usuario(correo, contrasena) values(:correo, md5(:contrasena));";
         $insertar = $this->con->prepare($sql);
