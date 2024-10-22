@@ -18,7 +18,7 @@
         </div>
 
         <div class="mb-3">
-          /<!--*TODO:add role logic here*/-->
+          <!--*TODO:add role logic here*/-->
         </div>
 
         <input type="submit" value="Guardar" name="data[enviar]" class="btn btn-primary w-100">
