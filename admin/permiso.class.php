@@ -1,18 +1,14 @@
 <?php
  require_once ('../sistema.class.php');
 
- class Invernadero extends sistema {
+ class permiso extends sistema {
     function create ($data){
         $result = [];
         $insertar = [];
         $this -> conexion();
-        $sql="insert into invernadero(area, fecha_creacion, invernadero, latitud, longitud) values(:area, :fecha_creacion, :invernadero, :latitud, :longitud);";
+        $sql="insert into permiso(permiso) values(:permiso);";
         $insertar = $this->con->prepare($sql);
-        $insertar -> bindParam(':area', $data['area'], PDO::PARAM_INT);
-        $insertar -> bindParam(':fecha_creacion', $data['fecha_creacion'], PDO::PARAM_STR);
-        $insertar -> bindParam(':invernadero', $data['invernadero'], PDO::PARAM_STR);
-        $insertar -> bindParam(':latitud', $data['latitud'], PDO::PARAM_STR);
-        $insertar -> bindParam(':longitud', $data['longitud'], PDO::PARAM_STR);
+        $insertar -> bindParam(':permiso', $data['permiso'], PDO::PARAM_STR);
         $insertar -> execute();
         $result = $insertar -> rowCount();
         return $result;
@@ -21,14 +17,10 @@
     function update ($id, $data){
         $this->conexion();
         $result = [];
-        $sql = 'update invernadero set invernadero=:invernadero, latitud=:latitud,longitud=:longitud,area=:area, fecha_creacion=:fecha_creacion where id_invernadero=:id_invernadero;';
+        $sql = 'update permiso set permiso=:permiso where id_permiso=:id_permiso;';
         $modificar=$this->con->prepare($sql);
-        $modificar->bindParam(':id_invernadero',$id, PDO::PARAM_INT);
-        $modificar->bindParam(':invernadero',$data['invernadero'], PDO::PARAM_STR);
-        $modificar->bindParam(':longitud',$data['longitud'], PDO::PARAM_STR);
-        $modificar->bindParam(':latitud',$data['latitud'], PDO::PARAM_STR);
-        $modificar->bindParam(':area',$data['area'], PDO::PARAM_INT);
-        $modificar->bindParam(':fecha_creacion',$data['fecha_creacion'], PDO::PARAM_STR);
+        $modificar->bindParam(':id_permiso',$id, PDO::PARAM_INT);
+        $modificar->bindParam(':permiso',$data['permiso'], PDO::PARAM_STR);
         $modificar->execute();
         $result= $modificar->rowCount();
         return $result;
@@ -37,9 +29,9 @@
     function delete ($id){
         $this -> conexion();
         $result = [];
-        $sql = "delete from invernadero where id_invernadero=:id_invernadero;";
+        $sql = "delete from permiso where id_permiso=:id_permiso;";
         $eliminar = $this->con->prepare($sql);
-        $eliminar -> bindParam(':id_invernadero', $id, PDO::PARAM_INT);
+        $eliminar -> bindParam(':id_permiso', $id, PDO::PARAM_INT);
         $eliminar -> execute();
         $result = $eliminar -> rowCount();
         return $result;
@@ -48,9 +40,9 @@
     function readOne ($id){
         $this->conexion();
         $result = [];
-        $consulta = 'SELECT * FROM invernadero where id_invernadero=:id_invernadero;';
+        $consulta = 'SELECT * FROM permiso where id_permiso=:id_permiso;';
         $sql = $this->con->prepare($consulta);
-        $sql->bindParam(":id_invernadero",$id,PDO::PARAM_INT);
+        $sql->bindParam(":id_permiso",$id,PDO::PARAM_INT);
         $sql -> execute();
 
         $result = $sql->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +52,7 @@
     function readAll (){
         $this -> conexion();
         $result = [];
-        $consulta ='select * from invernadero';
+        $consulta ='select * from permiso';
         $sql = $this->con->prepare ($consulta); 
         $sql -> execute();
         $result = $sql -> fetchALL(PDO::FETCH_ASSOC);    
