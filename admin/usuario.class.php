@@ -16,6 +16,7 @@
           $insertar -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
           $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
           $insertar -> execute();
+
           $sql = "select id_usuario from usuario where correo = :correo";
           $consulta = $this->con->prepare($sql);
           $consulta -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
@@ -23,9 +24,12 @@
 
           $datos = $consulta -> fetch(PDO::FETCH_ASSOC);
           $id_usuario = isset($datos['id_usuario'])? $datos['id_usuario']: null;
-          if (!is_null($id_usuario)) {
-          } else {
-          }
+          /*if (!is_null($id_usuario)) {*/
+          /*  foreach($rol as $r) {*/
+          /*    $sql*/
+          /*  }*/
+          /*} else {*/
+          /*}*/
           
           /*print_r($datos);*/
           /*$this -> con -> rollback();*/
