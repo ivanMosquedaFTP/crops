@@ -20,7 +20,7 @@
     function update ($id, $data){
         $this->conexion();
         $result = [];
-        $sql = 'update usuario set correo=:correo, contrasena=:contrasena where id_usuario=:id_usuario;';
+        $sql = 'update usuario set correo=:correo, contrasena=md5(:contrasena) where id_usuario=:id_usuario;';
         $modificar=$this->con->prepare($sql);
         $modificar->bindParam(':correo',$data['correo'], PDO::PARAM_STR);
         $modificar->bindParam(':contrasena',$data['contrasena'], PDO::PARAM_INT);
