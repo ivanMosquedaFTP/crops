@@ -16,6 +16,16 @@
           $insertar -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
           $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
           $insertar -> execute();
+          $sql = "select id_usuario from usuario where correo = :correo";
+          $consulta = $this->con->prepare($sql);
+          $sql -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
+          $consulta -> execute();
+
+          $datos = $consulta -> fetch(PDO::FETCH_ASSOC);
+          print_r($datos);
+          $this -> con -> rollback();
+          die();
+
           $this -> con -> commit();
           $result = $insertar -> rowCount();
           return $result;
