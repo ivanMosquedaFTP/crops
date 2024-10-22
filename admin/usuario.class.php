@@ -27,6 +27,7 @@
 
           if (!is_null($id_usuario)) {
             foreach($rol as $r => $k) {
+              print_r($rol);
               print_r($r);
               echo($k);
               $this -> con -> rollback();
