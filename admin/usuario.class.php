@@ -26,8 +26,9 @@
           $id_usuario = isset($datos['id_usuario'])? $datos['id_usuario']: null;
 
           if (!is_null($id_usuario)) {
-            foreach($rol as $r) {
+            foreach($rol as $r => $k) {
               print_r($r);
+              echo($k);
               $this -> con -> rollback();
               die();
               /*$sql = "insert into ";*/
@@ -35,10 +36,6 @@
           } else {
           }
           
-          /*print_r($datos);*/
-          /*$this -> con -> rollback();*/
-          /*die();*/
-
           $this -> con -> commit();
           $result = $insertar -> rowCount();
           return $result;
