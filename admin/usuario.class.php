@@ -17,12 +17,13 @@
           $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
           $insertar -> execute();
           $this -> con -> commit();
+          $result = $insertar -> rowCount();
+          return $result;
         } catch(Exception $e) {
           /*echo("error");*/
+          $this -> con -> rollback();
         }
-
-        $result = $insertar -> rowCount();
-        return $result;
+        return false;
     }
 
     function update ($id, $data){
