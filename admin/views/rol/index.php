@@ -1,32 +1,23 @@
 <?php require('views/header/headerAdministrador.php');?>
-  <h1>Invernaderos</h1>
+  <h1>Roles</h1>
   <?php if (isset($mensaje)): $app -> alerta($tipo, $mensaje); endif;?>
-  <a href="invernadero.php?accion=crear" class="btn btn-success">Nuevo</a>
+  <a href="rol.php?accion=crear" class="btn btn-success">Nuevo</a>
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id invernadero</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Area</th>
-      <th scope="col">Latitud</th>
-      <th scope="col">Longitud</th>
-      <th scope="col">Fecha de creacion</th>
-      <th scope="col">Opciones</th>
+      <th scope="col">Id rol</th>
+      <th scope="col">Rol</th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach($invernaderos as $invernadero): ?>
+    <?php foreach($roles as $rol): ?>
     <tr>
-      <th scope="row"><?php echo $invernadero ['id_invernadero']; ?></th>
-      <td><?php echo $invernadero ['invernadero']; ?></td>
-      <td><?php echo $invernadero ['area']; ?></td>
-      <td><?php echo $invernadero ['latitud']; ?></td>
-      <td><?php echo $invernadero ['longitud']; ?></td>
-      <td><?php echo $invernadero ['fecha_creacion']; ?></td>
+      <th scope="row"><?php echo $rol ['id_rol']; ?></th>
+      <td><?php echo $rol ['rol']; ?></td>
       <td>
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <a href="invernadero.php?accion=actualizar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-warning">Actualizar</a>
-          <a href="invernadero.php?accion=eliminar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-danger">Eliminar</a>
+          <a href="rol.php?accion=actualizar&id=<?php echo $rol ['id_rol']; ?>" class="btn btn-warning">Actualizar</a>
+          <a href="rol.php?accion=eliminar&id=<?php echo $rol ['id_rol']; ?>" class="btn btn-danger">Eliminar</a>
         </div>
       </td>
     </tr>
