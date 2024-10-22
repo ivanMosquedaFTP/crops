@@ -18,13 +18,18 @@
           $insertar -> execute();
           $sql = "select id_usuario from usuario where correo = :correo";
           $consulta = $this->con->prepare($sql);
-          $sql -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
+          $consulta -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
           $consulta -> execute();
 
           $datos = $consulta -> fetch(PDO::FETCH_ASSOC);
-          print_r($datos);
-          $this -> con -> rollback();
-          die();
+          $id_usuario = isset($datos['id_usuario'])? $datos['id_usuario']: null;
+          if (!is_null($id_usuario)) {
+          } else {
+          }
+          
+          /*print_r($datos);*/
+          /*$this -> con -> rollback();*/
+          /*die();*/
 
           $this -> con -> commit();
           $result = $insertar -> rowCount();
