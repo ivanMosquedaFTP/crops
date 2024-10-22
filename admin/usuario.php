@@ -1,6 +1,6 @@
 <?php
 require_once ('usuario.class.php');
-require_once ('rol.class.php');
+include ('rol.class.php');
 
 $app = new usuario();
 $appRole = new rol();
@@ -11,13 +11,14 @@ $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
         $roles = $appRole -> readAll();
-        $usuarios = $app -> readAll();
+
         include 'views/usuario/crear.php';
         break;
     }
 
     case 'nuevo': {
-        $data=$_POST['data'];
+        $data=$_POST;
+
         $resultado = $app->create($data);
         if ($resultado) {
             $mensaje = "Usuario dado de alta correctamente";

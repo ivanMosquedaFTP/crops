@@ -7,7 +7,6 @@
     <tr>
       <th scope="col">Id usuario</th>
       <th scope="col">Correo</th>
-      <th scope="col">Role</th>
   </thead>
   <tbody>
     <?php foreach($usuarios as $usuario): ?>
