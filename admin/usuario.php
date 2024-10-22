@@ -12,7 +12,8 @@ $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
-        $roles = $appRole -> readAll();
+        /*$roles = $appRole -> readAll();*/
+        $usuarios = $app -> readAll();
         include 'views/usuario/crear.php';
         break;
     }
@@ -35,7 +36,7 @@ switch ($accion) {
 
     case 'actualizar': {
         $usuarios = $app -> readOne($id); 
-        $roles = $appRole -> readAll();
+        /*$roles = $appRole -> readAll();*/
         include('views/usuario/crear.php');
         break;
     }
