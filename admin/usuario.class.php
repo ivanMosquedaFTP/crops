@@ -6,11 +6,13 @@
         $result = [];
         $insertar = [];
         $this -> conexion();
+        $this -> con -> beginTransaction();
         $sql="insert into usuario(correo, contrasena) values(:correo, md5(:contrasena));";
         $insertar = $this->con->prepare($sql);
         $insertar -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
         $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
         $insertar -> execute();
+        $this -> con -> commit();
         $result = $insertar -> rowCount();
         return $result;
     }
