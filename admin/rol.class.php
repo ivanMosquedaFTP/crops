@@ -1,16 +1,16 @@
 <?php
  require_once ('../sistema.class.php');
 
- class Invernadero extends sistema {
+ class rol extends sistema {
     function create ($data){
         $result = [];
         $insertar = [];
         $this -> conexion();
-        $sql="insert into invernadero(area, fecha_creacion, invernadero, latitud, longitud) values(:area, :fecha_creacion, :invernadero, :latitud, :longitud);";
+        $sql="insert into rol(area, fecha_creacion, rol, latitud, longitud) values(:area, :fecha_creacion, :rol, :latitud, :longitud);";
         $insertar = $this->con->prepare($sql);
         $insertar -> bindParam(':area', $data['area'], PDO::PARAM_INT);
         $insertar -> bindParam(':fecha_creacion', $data['fecha_creacion'], PDO::PARAM_STR);
-        $insertar -> bindParam(':invernadero', $data['invernadero'], PDO::PARAM_STR);
+        $insertar -> bindParam(':rol', $data['rol'], PDO::PARAM_STR);
         $insertar -> bindParam(':latitud', $data['latitud'], PDO::PARAM_STR);
         $insertar -> bindParam(':longitud', $data['longitud'], PDO::PARAM_STR);
         $insertar -> execute();
@@ -21,10 +21,10 @@
     function update ($id, $data){
         $this->conexion();
         $result = [];
-        $sql = 'update invernadero set invernadero=:invernadero, latitud=:latitud,longitud=:longitud,area=:area, fecha_creacion=:fecha_creacion where id_invernadero=:id_invernadero;';
+        $sql = 'update rol set rol=:rol, latitud=:latitud,longitud=:longitud,area=:area, fecha_creacion=:fecha_creacion where id_rol=:id_rol;';
         $modificar=$this->con->prepare($sql);
-        $modificar->bindParam(':id_invernadero',$id, PDO::PARAM_INT);
-        $modificar->bindParam(':invernadero',$data['invernadero'], PDO::PARAM_STR);
+        $modificar->bindParam(':id_rol',$id, PDO::PARAM_INT);
+        $modificar->bindParam(':rol',$data['rol'], PDO::PARAM_STR);
         $modificar->bindParam(':longitud',$data['longitud'], PDO::PARAM_STR);
         $modificar->bindParam(':latitud',$data['latitud'], PDO::PARAM_STR);
         $modificar->bindParam(':area',$data['area'], PDO::PARAM_INT);
@@ -37,9 +37,9 @@
     function delete ($id){
         $this -> conexion();
         $result = [];
-        $sql = "delete from invernadero where id_invernadero=:id_invernadero;";
+        $sql = "delete from rol where id_rol=:id_rol;";
         $eliminar = $this->con->prepare($sql);
-        $eliminar -> bindParam(':id_invernadero', $id, PDO::PARAM_INT);
+        $eliminar -> bindParam(':id_rol', $id, PDO::PARAM_INT);
         $eliminar -> execute();
         $result = $eliminar -> rowCount();
         return $result;
@@ -48,9 +48,9 @@
     function readOne ($id){
         $this->conexion();
         $result = [];
-        $consulta = 'SELECT * FROM invernadero where id_invernadero=:id_invernadero;';
+        $consulta = 'SELECT * FROM rol where id_rol=:id_rol;';
         $sql = $this->con->prepare($consulta);
-        $sql->bindParam(":id_invernadero",$id,PDO::PARAM_INT);
+        $sql->bindParam(":id_rol",$id,PDO::PARAM_INT);
         $sql -> execute();
 
         $result = $sql->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@
     function readAll (){
         $this -> conexion();
         $result = [];
-        $consulta ='select * from invernadero';
+        $consulta ='select * from rol';
         $sql = $this->con->prepare ($consulta); 
         $sql -> execute();
         $result = $sql -> fetchALL(PDO::FETCH_ASSOC);    
