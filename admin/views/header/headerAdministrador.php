@@ -21,17 +21,13 @@
         <li class="nav-item">
           <a class="nav-link" aria-disabled="false" href="login.php?accion=logout">Logout</a>
         </li>
-        <li>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-               Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuario</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownUsuario">
+            <li><a class="dropdown-item" href="usuario.php">Usuario</a></li>
+            <li><a class="dropdown-item" href="roles.php">Roles</a></li>
+            <li><a class="dropdown-item" href="permisos.php">Permisos</a></li>
+          </ul>
         </li>
       </ul>
     </div>
