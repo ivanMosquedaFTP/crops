@@ -1,65 +1,46 @@
 <?php
-  require('views/header.php');
+  require_once('views/header.php');
 ?>
 
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <form action="login.php?accion=login" method="post">
-      <!-- Email input -->
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control" name="data[correo]" />
-        <label class="form-label" for="form2Example1">Correo electronico</label>
-      </div>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh; background-color: #f8f9fa;">
+    <div class="card shadow-lg p-4" style="max-width: 500px; width: 100%; border-radius: 15px;">
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="user-icon" width="80" class="mb-3">
+                <h3 class="card-title">Iniciar Sesión</h3>
+            </div>
+            <form method="post" action="login.php?accion=login">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" name="data[correo]" id="form2Example1" class="form-control" />
+                    <label class="form-label" for="form2Example1">Correo electrónico</label>
+                </div>
 
-      <!-- Password input -->
-      <div data-mdb-input-init class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" name="data[contrasena]" />
-        <label class="form-label" for="form2Example2">Contrasena</label>
-      </div>
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="data[contrasena]" id="form2Example2" class="form-control" />
+                    <label class="form-label" for="form2Example2">Contraseña</label>
+                </div>
 
-      <!-- 2 column grid layout for inline styling -->
-      <div class="row mb-4">
-        <div class="col d-flex justify-content-center">
-          <!-- Checkbox -->
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-            <label class="form-check-label" for="form2Example31"> Remember me </label>
-          </div>
+                <!-- Checkbox y Recuperar Contraseña -->
+                <div class="d-flex justify-content-between mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="form2Example31" checked />
+                        <label class="form-check-label" for="form2Example31"> Recuérdame </label>
+                    </div>
+                    <a href="login.php?accion=forgot">Recuperar contraseña</a>
+                </div>
+
+                <!-- Botón de inicio de sesión -->
+                <button type="submit" value="entrar al sistema" name="enviar" class="btn btn-primary btn-block mb-4">Iniciar Sesión</button>
+
+                <!-- Botones de registro y redes sociales -->
+                <div class="text-center">
+                    <p>¿No tienes cuenta? <a href="#!">Regístrate</a></p>
+                </div>
+            </form>
         </div>
-
-        <div class="col">
-          <!-- Simple link -->
-          <a href="login.php?accion=forgot">Olvidaste la Contrasena?</a>
-        </div>
-      </div>
-
-      <!-- Submit button -->
-      <input type="submit" class="btn btn-primary btn-block mb-4" value="Entrar al sistema" name="data[enviar]">
-
-      <!-- Register buttons -->
-      <div class="text-center">
-        <p>Not a member? <a href="#!">Register</a></p>
-        <p>or sign up with:</p>
-        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-github"></i>
-        </button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-1"></div>
+    </div>
 </div>
 
 <?php
