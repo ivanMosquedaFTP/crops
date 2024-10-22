@@ -17,8 +17,8 @@ switch ($accion) {
     }
 
     case 'nuevo': {
-        $data=$_POST['data'];
-        /*$data=$_POST;*/
+        /*$data=$_POST['data'];*/
+        $data=$_POST;
 
         /*print_r($_POST);*/
         /*die();*/

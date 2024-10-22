@@ -8,15 +8,19 @@
         $this -> conexion();
         $rol = $data['rol'];
         $data = $data['data'];
-        print_r($rol);
-        print_r($data);
         $this -> con -> beginTransaction();
-        $sql="insert into usuario(correo, contrasena) values(:correo, md5(:contrasena));";
-        $insertar = $this->con->prepare($sql);
-        $insertar -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
-        $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
-        $insertar -> execute();
-        $this -> con -> commit();
+
+        try {
+          $sql="insert into usuario(correo, contrasena) values(:correo, md5(:contrasena));";
+          $insertar = $this->con->prepare($sql);
+          $insertar -> bindParam(':correo', $data['correo'], PDO::PARAM_STR);
+          $insertar -> bindParam(':contrasena', $data['contrasena'], PDO::PARAM_STR);
+          $insertar -> execute();
+          $this -> con -> commit();
+        } catch(Exception $e) {
+          /*echo("error");*/
+        }
+
         $result = $insertar -> rowCount();
         return $result;
     }
