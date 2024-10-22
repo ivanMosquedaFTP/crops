@@ -27,18 +27,18 @@
 
           if (!is_null($id_usuario)) {
             foreach($rol as $r => $k) {
-              print_r($rol);
-              print_r($r);
-              echo($k);
-              $this -> con -> rollback();
-              die();
-              /*$sql = "insert into ";*/
+              $sql = "insert into usuario_rol(id_usuario, id_rol) values(:id_usuario, :id_rol);";
+              $insertar_rol = $this->con->prepare($sql);
+              $insertar_rol -> bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
+              $insertar_rol -> bindParam(':id_rol', $k, PDO::PARAM_INT);
+              $insertar_rol -> execute();
             }
+
+            $this -> con -> commit();
+            $result = $insertar -> rowCount();
           } else {
           }
           
-          $this -> con -> commit();
-          $result = $insertar -> rowCount();
           return $result;
         } catch(Exception $e) {
           /*echo("error");*/
