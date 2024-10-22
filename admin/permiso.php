@@ -1,13 +1,13 @@
 <?php
-require_once ('invernadero.class.php');
-$app = new invernadero();
+require_once ('permiso.class.php');
+$app = new permiso();
 $app -> checkRole('administrador');
 
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
-        include 'views/invernadero/crear.php';
+        include 'views/permiso/crear.php';
         break;
     }
 
@@ -15,21 +15,21 @@ switch ($accion) {
         $data=$_POST['data'];
         $resultado = $app->create($data);
         if ($resultado) {
-            $mensaje = "Invernadero dado de alta correctamente";
+            $mensaje = "Permiso dado de alta correctamente";
             $tipo = "success";
         } else {
-            $mensaje = "El invernadero no ha sido dado de alta";
+            $mensaje = "El permiso no ha sido dado de alta";
             $tipo = "danger";
         }
 
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $permisos = $app->readAll();
+        include('views/permiso/index.php');
         break;
     }
 
     case 'actualizar': {
-        $invernaderos = $app -> readOne($id); 
-        include('views/invernadero/crear.php');
+        $permisos = $app -> readOne($id); 
+        include('views/permiso/crear.php');
         break;
     }
     
@@ -37,14 +37,14 @@ switch ($accion) {
         $data= $_POST['data'];
         $result=$app->update($id,$data);
         if($result){
-            $mensaje="El invernadero se ha actualizado";
+            $mensaje="El permiso se ha actualizado";
             $tipo="success";
         }else{
             $mensaje="No se ha actualizado";
             $tipo="danger";
         }
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $permisos = $app->readAll();
+        include('views/permiso/index.php');
         break;
     }
 
@@ -53,22 +53,22 @@ switch ($accion) {
             if (is_numeric($id)) {
                 $resultado = $app -> delete($id);
                 if ($resultado) {
-                    $mensaje = "El invernadero se elimino correctamente";
+                    $mensaje = "El permiso se elimino correctamente";
                     $tipo = "success";
                 } else {
-                    $mensaje = "El invernadero no se elimino correctamente";
+                    $mensaje = "El permiso no se elimino correctamente";
                     $tipo = "danger";
                 }
             }
         }
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $permisos = $app->readAll();
+        include('views/permiso/index.php');
         break;
     }
 
     default: {
-        $invernaderos = $app->readAll();
-        include 'views/invernadero/index.php';
+        $permisos = $app->readAll();
+        include 'views/permiso/index.php';
         break;
     }
 }
