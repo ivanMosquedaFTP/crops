@@ -8,7 +8,7 @@
         $this -> conexion();
         $sql="insert into rol(rol) values(:rol);";
         $insertar = $this->con->prepare($sql);
-        $insertar -> bindParam(':rol', $data['rol'], PDO::PARAM_INT);
+        $insertar -> bindParam(':rol', $data['rol'], PDO::PARAM_STR);
         $insertar -> execute();
         $result = $insertar -> rowCount();
         return $result;
