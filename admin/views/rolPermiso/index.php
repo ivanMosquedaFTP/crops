@@ -1,32 +1,24 @@
 <?php require('views/header/headerAdministrador.php');?>
-  <h1>Invernaderos</h1>
+  <h1>Roles-permisos</h1>
   <?php if (isset($mensaje)): $app -> alerta($tipo, $mensaje); endif;?>
-  <a href="invernadero.php?accion=crear" class="btn btn-success">Nuevo</a>
+  <a href="rolPermiso.php?accion=crear" class="btn btn-success">Nuevo</a>
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id invernadero</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Area</th>
-      <th scope="col">Latitud</th>
-      <th scope="col">Longitud</th>
-      <th scope="col">Fecha de creacion</th>
-      <th scope="col">Opciones</th>
+      <th scope="col">Id rol</th>
+      <th scope="col">Id permiso</th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach($invernaderos as $invernadero): ?>
+    <?php foreach($rolesPermisos as $rolPermiso): ?>
     <tr>
-      <th scope="row"><?php echo $invernadero ['id_invernadero']; ?></th>
-      <td><?php echo $invernadero ['invernadero']; ?></td>
-      <td><?php echo $invernadero ['area']; ?></td>
-      <td><?php echo $invernadero ['latitud']; ?></td>
-      <td><?php echo $invernadero ['longitud']; ?></td>
-      <td><?php echo $invernadero ['fecha_creacion']; ?></td>
+      <th scope="row"><?php echo $rolPermiso ['id_rol']; ?></th>
+      <td><?php echo $rolPermiso ['id_permiso']; ?></td>
       <td>
+        /*TODO:fix the primary key*/
         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <a href="invernadero.php?accion=actualizar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-warning">Actualizar</a>
-          <a href="invernadero.php?accion=eliminar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-danger">Eliminar</a>
+          <a href="rolPermiso.php?accion=actualizar&id=<?php echo $rolPermiso ['id_rolPermiso']; ?>" class="btn btn-warning">Actualizar</a>
+          <a href="rolPermiso.php?accion=eliminar&id=<?php echo $rolPermiso ['id_rolPermiso']; ?>" class="btn btn-danger">Eliminar</a>
         </div>
       </td>
     </tr>
